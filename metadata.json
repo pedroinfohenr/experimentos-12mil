@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Dinâmicas de Ciências",
+  "description": "Página de vendas premium para o pacote de mais de 500 dinâmicas interativas para aulas de Ciências do Ensino Fundamental ao Médio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
