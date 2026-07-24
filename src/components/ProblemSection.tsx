@@ -8,20 +8,20 @@ interface ProblemSectionProps {
 export default function ProblemSection({ onCtaClick }: ProblemSectionProps) {
   const transformationRows = [
     {
-      from: "Planejamento demorado e estressante",
-      to: "Aulas prontas em minutos"
+      from: "Perder horas procurando e planejando aulas do zero",
+      to: "Economizar tempo com 365 experimentos prontos para aplicar em minutos"
     },
     {
-      from: "Alunos desinteressados e desmotivados",
-      to: "Experimentos que engajam qualquer turma"
+      from: "Procurar novas atividades na internet todos os dias",
+      to: "Parar de procurar atividades com material completo de Ciências"
     },
     {
-      from: "Material caro e desatualizado",
-      to: "365+ experimentos e atividades prontas"
+      from: "Alunos desatentos e desinteressados nas teorias",
+      to: "Aulas mais práticas com alunos 100% engajados e apaixonados"
     },
     {
-      from: "Domingos perdidos preparando aulas",
-      to: "Sua paz de espírito e domingos livres de volta"
+      from: "Domingos e noites perdidos preparando conteúdo",
+      to: "Material pronto para imprimir e aplicar com tempo livre garantido"
     }
   ];
 
@@ -76,6 +76,19 @@ export default function ProblemSection({ onCtaClick }: ProblemSectionProps) {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Green CTA Button (ORDEM 5 & 12) */}
+        <div className="mt-10 flex justify-center w-full max-w-md mx-auto">
+          <motion.button
+            onClick={onCtaClick}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full py-4.5 md:py-5 bg-[#05b41b] hover:bg-[#049e18] text-white rounded-2xl font-black text-xs xs:text-sm sm:text-base md:text-lg tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer shadow-xl shadow-[#05b41b]/25 font-display border border-[#05b41b]"
+          >
+            QUERO ACESSAR AGORA
+            <ArrowRight className="w-5 h-5 shrink-0 text-white" />
+          </motion.button>
         </div>
 
       </div>

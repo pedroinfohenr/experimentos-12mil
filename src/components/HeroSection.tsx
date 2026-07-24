@@ -323,7 +323,7 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
           className="max-w-3xl sm:max-w-4xl lg:max-w-5xl mx-auto px-1"
         >
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight font-display leading-[1.1] drop-shadow-xs text-slate-950">
-            Professor(a), <span className="text-[#039D1F] font-black">pare de perder tempo</span> planejando aulas do zero!
+            Cansado de <span className="text-[#039D1F] font-black">perder tempo</span> planejando aulas de Ciências e procurando novas atividades todos os dias?
           </h1>
         </motion.div>
 
@@ -334,7 +334,7 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
           transition={{ duration: 0.5, delay: 0.15 }}
           className="max-w-3xl lg:max-w-4xl mx-auto text-sm sm:text-base md:text-xl lg:text-2xl text-slate-800 font-bold leading-relaxed"
         >
-          Tenha acesso a mais de <span className="text-[#039D1F] font-black">365 experimentos prontos</span> de Ciências, Biologia, Física e Química e planeje praticamente um <span className="text-[#039D1F] font-black">ano inteiro de aulas práticas</span> em minutos.
+          Tenha acesso a mais de <span className="text-[#039D1F] font-black">365 experimentos prontos</span> de Ciências, Biologia, Física e Química, juntamente com mais de <span className="text-[#039D1F] font-black">100 avaliações</span> e <span className="text-[#039D1F] font-black">30 planos de aula completos</span> em minutos.
         </motion.p>
 
         {/* 3. Small video pointer text */}
@@ -388,7 +388,7 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
               animate={{ x: ['-100%', '300%'] }}
               transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut", repeatDelay: 1 }}
             />
-            Quero acessar agora
+            QUERO ACESSAR AGORA
             <ArrowRight className="w-5 h-5 md:w-6 h-6 shrink-0" />
           </motion.button>
           

@@ -105,7 +105,7 @@ export default function MaterialPreview({ onCtaClick }: MaterialPreviewProps) {
               whileTap={{ scale: 0.98 }}
               className="w-full sm:w-auto px-10 py-5 bg-[#039D1F] hover:bg-[#028018] text-white rounded-2xl font-black text-sm sm:text-lg uppercase tracking-wider shadow-xl shadow-[#039D1F]/20 flex items-center justify-center gap-2.5 cursor-pointer transition-all duration-300 font-display border border-[#039D1F]"
             >
-              BAIXAR TUDO AGORA
+              QUERO ACESSAR AGORA
               <ArrowRight className="w-5 h-5 shrink-0 text-white" />
             </motion.button>
           </div>

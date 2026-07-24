@@ -1,9 +1,14 @@
 import { motion } from 'motion/react';
+import { ArrowRight } from 'lucide-react';
 import whatsappTestimonial1 from '../assets/images/IMG_9820.PNG';
 import whatsappTestimonial2 from '../assets/images/IMG_9822.PNG';
 import imageProvaSocial from '../assets/images/prova social.png';
 
-export default function TestimonialsSection() {
+interface TestimonialsSectionProps {
+  onCtaClick?: () => void;
+}
+
+export default function TestimonialsSection({ onCtaClick }: TestimonialsSectionProps) {
   const proofImages = [
     {
       img: whatsappTestimonial1,
@@ -76,6 +81,19 @@ export default function TestimonialsSection() {
             </motion.div>
           </div>
 
+        </div>
+
+        {/* Green / High Contrast CTA Button (ORDEM 12) */}
+        <div className="mt-10 md:mt-12 flex justify-center w-full px-6">
+          <motion.button
+            onClick={onCtaClick}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full sm:w-auto px-10 py-5 bg-white text-[#039D1F] hover:bg-slate-50 rounded-2xl font-black text-sm sm:text-lg uppercase tracking-wider shadow-2xl shadow-black/20 flex items-center justify-center gap-2.5 cursor-pointer transition-all duration-300 font-display border border-white"
+          >
+            QUERO ACESSAR AGORA
+            <ArrowRight className="w-5 h-5 shrink-0 text-[#039D1F]" />
+          </motion.button>
         </div>
 
       </div>

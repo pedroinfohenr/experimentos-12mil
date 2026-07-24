@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import HeaderBanner from './components/HeaderBanner';
 import HeroSection from './components/HeroSection';
+import HighlightsSection from './components/HighlightsSection';
 import StatsBar from './components/StatsBar';
 import ProblemSection from './components/ProblemSection';
 import MaterialPreview from './components/MaterialPreview';
@@ -88,6 +89,9 @@ export default function App() {
         isUnlocked={isUnlocked}
       />
 
+      {/* ORDEM 3: Four indicators block right below video */}
+      <HighlightsSection onCtaClick={scrollToPricing} />
+
       {/* 4. Social proof stats row matching Image 2 */}
       <StatsBar onCtaClick={scrollToPricing} />
 
@@ -101,7 +105,7 @@ export default function App() {
       <BonusesSection />
 
       {/* 11. Verified testimonials block matching Image 7 */}
-      <TestimonialsSection />
+      <TestimonialsSection onCtaClick={scrollToPricing} />
 
       {/* 9. Pricing comparative layouts matching Image 6 */}
       <PricingSection onSelectPlan={(plan) => {

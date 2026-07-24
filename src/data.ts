@@ -124,43 +124,43 @@ export const bonuses: BonusItem[] = [
 export const plans: PricingPlan[] = [
   {
     id: 'essencial',
-    name: 'Kit de Experimentos',
-    description: 'Acesso completo ao pacote de 365 experimentos + bônus essenciais.',
-    originalPrice: 97,
-    promoPrice: 19,
-    cents: '90',
-    features: [
-      { text: '365 Experimentos de Ciências Prontos', included: true },
-      { text: 'Acesso imediato e vitalício', included: true },
-      { text: 'Garantia incondicional de 7 dias', included: true },
-      { text: '🎁 Experimentos de Física e Biologia', included: true },
-      { text: '🎁 30 Aulas Prontas de Ciências (BNCC)', included: true },
-      { text: '🎁 50 Atividades Práticas para Imprimir', included: true }
-    ],
-    buttonText: 'QUERO ACESSAR AGORA',
-    isPopular: true
-  },
-  {
-    id: 'premium',
-    name: 'Pacote Completo',
-    badge: 'SUPER RECOMENDADO',
-    description: 'O pacote completo de experimentos de Ciências + ABSOLUTAMENTE TODOS os bônus e atualizações.',
-    originalPrice: 249,
-    promoPrice: 27,
+    name: 'Plano Básico',
+    badge: 'CONTEÚDO REDUZIDO',
+    description: 'Acesso básico contendo apenas os 365 experimentos de Ciências.',
+    originalPrice: 47,
+    promoPrice: 10,
     cents: '00',
     features: [
       { text: '365 Experimentos de Ciências Prontos', included: true },
       { text: 'Acesso imediato e vitalício', included: true },
       { text: 'Garantia incondicional de 7 dias', included: true },
-      { text: '🎁 Experimentos de Física e Biologia', included: true },
-      { text: '🎁 30 Aulas Prontas de Ciências (BNCC)', included: true },
-      { text: '🎁 50 Atividades Práticas para Imprimir', included: true },
-      { text: '🎁 100 Avaliações Prontas (com Gabarito)', included: true },
-      { text: '🎁 Guia de Planejamento Prático do Professor', included: true },
-      { text: '🎁 Atualizações Vitalícias Gratuitas', included: true },
-      { text: '🎁 Suporte VIP Prioritário 24/7', included: true }
+      { text: '❌ Não inclui +100 avaliações prontas', included: false },
+      { text: '❌ Não inclui +30 planos de aula completos', included: false },
+      { text: '❌ Não inclui bônus premium exclusivos', included: false }
     ],
-    buttonText: 'QUERO O PACOTE COMPLETO',
+    buttonText: 'QUERO O PLANO BÁSICO',
+    isPopular: false
+  },
+  {
+    id: 'premium',
+    name: 'Plano Completo',
+    badge: 'MELHOR OPÇÃO • RECOMENDADO',
+    description: 'Acesso total a todo o material + 100 avaliações + 30 planos de aula + TODOS os bônus!',
+    originalPrice: 254,
+    promoPrice: 27,
+    cents: '00',
+    features: [
+      { text: '365 Experimentos de Ciências Prontos', included: true },
+      { text: '+100 Avaliações Prontas (com Gabarito Oficial)', included: true },
+      { text: '+30 Planos de Aula Completos (Alinhados à BNCC)', included: true },
+      { text: '🎁 Experimentos Extras de Física e Biologia', included: true },
+      { text: '🎁 Todos os 5 Bônus Premium Inclusos', included: true },
+      { text: '🎁 Atualizações Vitalícias Gratuitas', included: true },
+      { text: '🎁 Suporte VIP Prioritário 24/7', included: true },
+      { text: 'Acesso imediato e vitalício', included: true },
+      { text: 'Garantia incondicional de 7 dias', included: true }
+    ],
+    buttonText: 'QUERO O PLANO COMPLETO AGORA',
     isPopular: true
   }
 ];
