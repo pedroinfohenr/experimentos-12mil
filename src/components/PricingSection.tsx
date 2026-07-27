@@ -131,19 +131,19 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
               duration: 0.4
             }}
             viewport={{ once: true }}
-            className="lg:col-span-8 rounded-[32px] p-6 sm:p-10 flex flex-col justify-between relative bg-white text-slate-800 border-[3.5px] border-[#039D1F] shadow-2xl z-20 overflow-hidden transform lg:-translate-y-2"
+            className="lg:col-span-8 rounded-[28px] sm:rounded-[32px] p-5 sm:p-8 md:p-10 flex flex-col justify-between relative bg-white text-slate-800 border-[3.5px] border-[#039D1F] shadow-2xl z-20 overflow-hidden transform lg:-translate-y-2"
           >
             {/* Top Recommended Banner */}
-            <div className="absolute top-0 right-0 left-0 bg-gradient-to-r from-[#039D1F] via-[#04bd26] to-[#039D1F] text-white text-xs sm:text-sm font-black tracking-widest uppercase px-6 py-2.5 shadow-md flex items-center justify-center gap-2 select-none z-10 border-b border-emerald-400/40">
-              <Crown className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-300 text-amber-300 animate-bounce shrink-0" />
+            <div className="absolute top-0 right-0 left-0 bg-gradient-to-r from-[#039D1F] via-[#04bd26] to-[#039D1F] text-white text-[10px] xs:text-xs sm:text-sm font-black tracking-wider uppercase px-4 py-2.5 shadow-md flex items-center justify-center gap-1.5 select-none z-10 border-b border-emerald-400/40">
+              <Crown className="w-3.5 h-3.5 sm:w-5 sm:h-5 fill-amber-300 text-amber-300 animate-bounce shrink-0" />
               <span className="drop-shadow-xs font-display">MAIS ESCOLHIDO</span>
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300 shrink-0" />
+              <Sparkles className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-amber-300 shrink-0" />
             </div>
 
-            <div className="pt-6">
+            <div className="pt-9 sm:pt-10">
               {/* Card Title & Desc */}
-              <div className="space-y-2 mb-6">
-                <h3 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-display">
+              <div className="space-y-1.5 mb-5">
+                <h3 className="text-2xl xs:text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-display">
                   {completePlan.name}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-bold leading-relaxed">
@@ -152,19 +152,19 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
               </div>
 
               {/* Pricing Box */}
-              <div className="border-y border-emerald-500/15 py-6 mb-6 space-y-2 bg-emerald-50/50 px-5 rounded-2xl">
-                <span className="text-xs text-slate-400 line-through font-medium block">
+              <div className="border-y border-emerald-500/15 py-4 sm:py-6 mb-5 space-y-2 bg-emerald-50/50 px-3.5 sm:px-5 rounded-2xl">
+                <span className="text-[11px] sm:text-xs text-slate-400 line-through font-medium block">
                   de R$ {completePlan.originalPrice.toFixed(2).replace('.', ',')}
                 </span>
                 
-                <div className="flex items-baseline gap-1.5 text-[#039D1F] whitespace-nowrap">
-                  <span className="text-xs font-black uppercase text-[#039D1F]">Por apenas</span>
-                  <span className="text-4xl xs:text-5xl sm:text-6xl font-black font-display text-[#039D1F]">R$ 27,00</span>
-                  <span className="text-xs font-bold text-slate-500">à vista</span>
+                <div className="flex items-baseline gap-1.5 text-[#039D1F] flex-wrap sm:flex-nowrap">
+                  <span className="text-[11px] sm:text-xs font-black uppercase text-[#039D1F]">Por apenas</span>
+                  <span className="text-3xl xs:text-4xl sm:text-6xl font-black font-display text-[#039D1F]">R$ 27,00</span>
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-500">à vista</span>
                 </div>
 
                 <div className="mt-2 flex">
-                  <span className="bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-xs">
+                  <span className="bg-amber-100 text-amber-900 border border-amber-200 text-[10px] xs:text-[11px] font-black px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-xs leading-tight">
                     🎁 VOCÊ ECONOMIZA R$ 227,00 HOJE!
                   </span>
                 </div>

@@ -49,11 +49,11 @@ export default function MaterialPreview({ onCtaClick }: MaterialPreviewProps) {
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 px-8 space-y-3">
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black text-slate-950 tracking-tight font-display leading-tight">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-14 px-4 sm:px-8 space-y-2 md:space-y-3">
+          <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-black text-slate-950 tracking-tight font-display leading-tight">
             Veja uma <span className="text-[#039D1F]">Prévia Real</span> do que vai receber
           </h2>
-          <p className="text-base sm:text-lg md:text-2xl font-extrabold text-slate-700 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs xs:text-sm sm:text-base md:text-2xl font-extrabold text-slate-700 max-w-2xl mx-auto leading-relaxed">
             Abra os <span className="text-[#039D1F]">arquivos prontos</span>, imprima e <span className="text-[#039D1F]">aplique em minutos</span>. Nossos roteiros e recursos são <span className="text-[#039D1F]">totalmente ilustrados</span> e 100% alinhados à BNCC.
           </p>
         </div>

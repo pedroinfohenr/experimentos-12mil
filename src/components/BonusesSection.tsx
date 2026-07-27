@@ -195,27 +195,27 @@ export default function BonusesSection() {
         <div className="absolute right-[-10%] bottom-[10%] w-[400px] h-[400px] rounded-full bg-emerald-300/10 filter blur-3xl" />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
 
-         {/* Highly Persuasive Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 space-y-4">
+        {/* Highly Persuasive Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-20 space-y-3">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#039D1F]/15 text-[#039D1F] border border-[#039D1F]/25 text-xs sm:text-sm font-black rounded-full uppercase tracking-widest shadow-sm select-none"
+            className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#039D1F]/15 text-[#039D1F] border border-[#039D1F]/25 text-[10px] xs:text-xs sm:text-sm font-black rounded-full uppercase tracking-wider shadow-xs select-none"
           >
-            <Gift className="w-4.5 h-4.5 animate-bounce shrink-0" />
-            <span>PRESENTE EXCLUSIVO EXCELENTE SÓ HOJE</span>
+            <Gift className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 animate-bounce shrink-0" />
+            <span>PRESENTE EXCLUSIVO SÓ HOJE</span>
           </motion.div>
           
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black text-slate-950 tracking-tight font-display leading-[1.1]">
+          <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-black text-slate-950 tracking-tight font-display leading-[1.12]">
             Adquirindo hoje, <span className="text-[#039D1F] font-black underline decoration-emerald-500/20 underline-offset-4">você também recebe:</span>
           </h2>
         </div>
 
         {/* Bonuses Vertical Stack with robust style and badges */}
-        <div className="space-y-4 md:space-y-6">
+        <div className="space-y-3.5 md:space-y-6">
           {bonuses.map((bonus, idx) => (
             <motion.div
               key={bonus.id}
@@ -223,23 +223,23 @@ export default function BonusesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08, duration: 0.5 }}
-              className="bg-white border-2 border-emerald-500/15 rounded-3xl p-5 md:p-8 shadow-md hover:shadow-xl hover:border-emerald-500/35 transition-all duration-300 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 relative overflow-hidden"
+              className="bg-white border-2 border-emerald-500/15 rounded-2xl sm:rounded-3xl p-4 xs:p-5 md:p-8 shadow-md hover:shadow-xl hover:border-emerald-500/35 transition-all duration-300 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 md:gap-6 relative overflow-hidden"
             >
               {/* Corner green flash light decor */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50/5 rounded-full blur-xl pointer-events-none" />
 
               {/* Illustration Thumbnail Box */}
-              <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 bg-emerald-50/60 border border-emerald-500/10 rounded-2xl flex items-center justify-center p-2.5 relative overflow-hidden shadow-inner">
+              <div className="w-20 h-20 md:w-32 md:h-32 shrink-0 bg-emerald-50/60 border border-emerald-500/10 rounded-2xl flex items-center justify-center p-2 relative overflow-hidden shadow-inner">
                 {bonus.illustration}
               </div>
 
               {/* Title & Description Text Block */}
-              <div className="flex-1 space-y-3.5">
-                <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight font-display">
+              <div className="flex-1 space-y-2 sm:space-y-3.5">
+                <h3 className="text-lg xs:text-xl sm:text-2xl font-black text-slate-900 leading-tight font-display">
                   {bonus.title}
                 </h3>
                 
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
+                <p className="text-xs xs:text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
                   {bonus.description}
                 </p>
               </div>

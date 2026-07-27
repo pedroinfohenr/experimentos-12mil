@@ -313,16 +313,16 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
         </motion.div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 md:px-12 text-center space-y-5 md:space-y-7 z-10 flex flex-col items-center">
+      <div className="max-w-5xl mx-auto px-4 xs:px-6 md:px-12 text-center space-y-4 xs:space-y-5 md:space-y-7 z-10 flex flex-col items-center">
         
         {/* 1. Headline with specific brand coloring matching the requested palette */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-3xl sm:max-w-4xl lg:max-w-5xl mx-auto px-1"
+          className="max-w-3xl sm:max-w-4xl lg:max-w-5xl mx-auto px-0.5"
         >
-          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight font-display leading-[1.1] drop-shadow-xs text-slate-950">
+          <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight font-display leading-[1.12] drop-shadow-xs text-slate-950">
             Cansado de <span className="text-[#039D1F] font-black">perder tempo</span> planejando aulas de Ciências e procurando novas atividades todos os dias?
           </h1>
         </motion.div>
@@ -332,7 +332,7 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="max-w-3xl lg:max-w-4xl mx-auto text-sm sm:text-base md:text-xl lg:text-2xl text-slate-800 font-bold leading-relaxed"
+          className="max-w-3xl lg:max-w-4xl mx-auto text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl text-slate-800 font-bold leading-relaxed px-1"
         >
           Tenha acesso a mais de <span className="text-[#039D1F] font-black">365 experimentos prontos</span> de Ciências, Biologia, Física e Química, juntamente com mais de <span className="text-[#039D1F] font-black">100 avaliações</span> e <span className="text-[#039D1F] font-black">30 planos de aula completos</span> em minutos.
         </motion.p>

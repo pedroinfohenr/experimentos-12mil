@@ -122,11 +122,11 @@ export default function App() {
         onClose={() => setIsUpsellOpen(false)}
         onAcceptUpsell={() => {
           setIsUpsellOpen(false);
-          redirectToCheckout('https://pay.wiapy.com/EDyYNMDTLkm');
+          redirectToCheckout('https://pay.wiapy.com/ZiPOwLgRTB');
         }}
         onDeclineUpsell={() => {
           setIsUpsellOpen(false);
-          redirectToCheckout('https://pay.wiapy.com/ZiPOwLgRTB');
+          redirectToCheckout('https://pay.wiapy.com/YeaKBenvRQS');
         }}
       />
 
