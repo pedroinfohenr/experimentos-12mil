@@ -19,13 +19,10 @@ export default function StatsBar({ onCtaClick }: StatsBarProps) {
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-6 md:mb-8 space-y-2 max-w-lg"
+          className="text-center mb-6 md:mb-8 max-w-lg"
         >
-          <span className="inline-block bg-white/20 text-white text-[10px] md:text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest border border-white/15">
-            Prometo & Provo! 🤝
-          </span>
           <h2 className="text-xl xs:text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
-            Veja o que o <span className="text-amber-300">Prof. Mauro</span> enviou no nosso WhatsApp:
+            Mensagem real enviada pelo <span className="text-amber-300">Prof. Mauro</span> no nosso WhatsApp:
           </h2>
         </motion.div>
         

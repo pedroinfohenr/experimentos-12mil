@@ -5,10 +5,10 @@ export default function BonusesSection() {
   const bonuses = [
     {
       id: 'b1',
-      title: 'BÔNUS 1: 30 Aulas Prontas (Passo a Passo)',
+      number: 'BÔNUS 1',
       badge: 'SALVE SEUS DOMINGOS',
-      description: 'Um mês inteiro de aulas 100% estruturadas com início, meio e fim. Você só precisa abrir o arquivo e aplicar, sem perder um único minuto montando slides ou roteiros.',
-      painPoint: 'Chega de gastar seu domingo à noite preparando slides do zero.',
+      title: 'Chega de Perder o Domingo à Noite Planejando Aula do Zero',
+      tagline: '30 Aulas Prontas (Passo a Passo)',
       illustration: (
         <svg className="w-16 h-16" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Blackboard / Lesson backdrop */}
@@ -35,10 +35,10 @@ export default function BonusesSection() {
     },
     {
       id: 'b2',
-      title: 'BÔNUS 2: 50 Atividades Prontas para Imprimir',
-      badge: 'PRATICIDADE TOTAL',
-      description: 'Atividades e exercícios de fixação perfeitamente alinhados aos experimentos. Formatação profissional de alta qualidade, pronta para imprimir e distribuir.',
-      painPoint: 'Economize mais de 40 horas de trabalho formatando documentos no Word.',
+      number: 'BÔNUS 2',
+      badge: 'FORMATO PRONTO',
+      title: 'Pare de Queimar Horas Formatando Atividades no Word',
+      tagline: '50 Atividades Prontas para Imprimir',
       illustration: (
         <svg className="w-16 h-16" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Stacked printable sheets in back */}
@@ -74,10 +74,10 @@ export default function BonusesSection() {
     },
     {
       id: 'b3',
-      title: 'BÔNUS 3: 100 Avaliações de Ciências Prontas',
-      badge: 'ALINHAMENTO BNCC',
-      description: 'Chega de quebrar a cabeça elaborando questões difíceis. Avaliações completas com gabarito oficial para você avaliar seus alunos com total segurança e imparcialidade.',
-      painPoint: 'Acabe de vez com as horas perdidas criando provas e buscando gabaritos corretos.',
+      number: 'BÔNUS 3',
+      badge: 'SEM MADRUGADAS ACORDADO',
+      title: 'Nunca Mais Fique Preso Criando Provas e Gabaritos de Madrugada',
+      tagline: '100 Avaliações de Ciências com Gabarito',
       illustration: (
         <svg className="w-16 h-16" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Exam document */}
@@ -109,10 +109,10 @@ export default function BonusesSection() {
     },
     {
       id: 'b4',
-      title: 'BÔNUS 4: Guia de Planejamento de Ciências',
-      badge: 'ORGANIZAÇÃO PERFEITA',
-      description: 'Um cronograma passo a passo para distribuir e integrar os experimentos perfeitamente no seu plano de ensino anual, otimizando o aprendizado ao extremo.',
-      painPoint: 'Tudo pronto e mapeado para você impressionar coordenadores e diretores.',
+      number: 'BÔNUS 4',
+      badge: 'ZERO ESTRESSE BNCC',
+      title: 'Cale a Cobrança da Coordenação sem Ter Estresse',
+      tagline: 'Guia de Planejamento Anual BNCC Mapeado',
       illustration: (
         <svg className="w-16 h-16" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(5, 0)">
@@ -160,10 +160,10 @@ export default function BonusesSection() {
     },
     {
       id: 'b5',
-      title: 'BÔNUS 5: Experimentos de Física e Biologia',
-      badge: 'CONTEÚDO EXTRA',
-      description: 'Uma coletânea fantástica de experimentos guiados de Física e Biologia de fácil aplicação para ampliar o vocabulário científico de seus alunos e enriquecer suas aulas.',
-      painPoint: 'Atividades práticas completas com roteiros detalhados e materiais simples.',
+      number: 'BÔNUS 5',
+      badge: 'ALUNOS 100% ENGAJADOS',
+      title: 'Acabe de Vez com o Desinteresse e Conversa Fiada na Sala',
+      tagline: 'Experimentos Práticos Incríveis de Física e Biologia',
       illustration: (
         <svg className="w-16 h-16" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Microscope/Scientific Lab theme */}
@@ -215,7 +215,7 @@ export default function BonusesSection() {
         </div>
 
         {/* Bonuses Vertical Stack with robust style and badges */}
-        <div className="space-y-3.5 md:space-y-6">
+        <div className="space-y-3.5 md:space-y-5">
           {bonuses.map((bonus, idx) => (
             <motion.div
               key={bonus.id}
@@ -223,25 +223,32 @@ export default function BonusesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08, duration: 0.5 }}
-              className="bg-white border-2 border-emerald-500/15 rounded-2xl sm:rounded-3xl p-4 xs:p-5 md:p-8 shadow-md hover:shadow-xl hover:border-emerald-500/35 transition-all duration-300 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 md:gap-6 relative overflow-hidden"
+              className="bg-white border-2 border-emerald-500/15 rounded-2xl sm:rounded-3xl p-4 xs:p-5 md:p-6 shadow-md hover:shadow-xl hover:border-emerald-500/35 transition-all duration-300 flex flex-col md:flex-row items-center md:items-center text-center md:text-left gap-4 md:gap-6 relative overflow-hidden"
             >
+              {/* Corner green BÔNUS pill in top right corner */}
+              <span className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2.5 py-1 bg-[#039D1F] text-white text-[10px] sm:text-xs font-black rounded-lg tracking-wider uppercase shadow-sm z-10">
+                {bonus.number}
+              </span>
+
               {/* Corner green flash light decor */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50/5 rounded-full blur-xl pointer-events-none" />
 
               {/* Illustration Thumbnail Box */}
-              <div className="w-20 h-20 md:w-32 md:h-32 shrink-0 bg-emerald-50/60 border border-emerald-500/10 rounded-2xl flex items-center justify-center p-2 relative overflow-hidden shadow-inner">
+              <div className="w-16 h-16 xs:w-20 xs:h-20 md:w-24 md:h-24 shrink-0 bg-emerald-50/60 border border-emerald-500/10 rounded-2xl flex items-center justify-center p-2 relative overflow-hidden shadow-inner">
                 {bonus.illustration}
               </div>
 
-              {/* Title & Description Text Block */}
-              <div className="flex-1 space-y-2 sm:space-y-3.5">
-                <h3 className="text-lg xs:text-xl sm:text-2xl font-black text-slate-900 leading-tight font-display">
+              {/* Punchy Pain-Point Title Block */}
+              <div className="flex-1 space-y-2 pr-16 md:pr-20">
+                <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-black text-slate-900 leading-tight font-display">
                   {bonus.title}
                 </h3>
                 
-                <p className="text-xs xs:text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
-                  {bonus.description}
-                </p>
+                <div className="pt-0.5">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs sm:text-sm font-bold border border-slate-200">
+                    <span className="text-[#039D1F] font-black">Inclui:</span> {bonus.tagline}
+                  </span>
+                </div>
               </div>
             </motion.div>
           ))}

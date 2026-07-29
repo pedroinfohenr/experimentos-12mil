@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import HeaderBanner from './components/HeaderBanner';
 import HeroSection from './components/HeroSection';
-import HighlightsSection from './components/HighlightsSection';
 import StatsBar from './components/StatsBar';
-import ProblemSection from './components/ProblemSection';
 import MaterialPreview from './components/MaterialPreview';
 import BonusesSection from './components/BonusesSection';
 import PricingSection from './components/PricingSection';
@@ -89,17 +87,11 @@ export default function App() {
         isUnlocked={isUnlocked}
       />
 
-      {/* ORDEM 3: Four indicators block right below video */}
-      <HighlightsSection onCtaClick={scrollToPricing} />
+      {/* 7. Preview of material/experiments brought to top right after Hero */}
+      <MaterialPreview onCtaClick={scrollToPricing} />
 
       {/* 4. Social proof stats row matching Image 2 */}
       <StatsBar onCtaClick={scrollToPricing} />
-
-      {/* 5. Problems pain points block matching Image 2 */}
-      <ProblemSection onCtaClick={scrollToPricing} />
-
-      {/* 7. Interactive visual device frame previews matching Image 4 */}
-      <MaterialPreview onCtaClick={scrollToPricing} />
 
       {/* 8. 5 Book-cover styled premium bonuses matching Image 5 */}
       <BonusesSection />

@@ -323,7 +323,7 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
           className="max-w-3xl sm:max-w-4xl lg:max-w-5xl mx-auto px-0.5"
         >
           <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight font-display leading-[1.12] drop-shadow-xs text-slate-950">
-            Cansado de <span className="text-[#039D1F] font-black">perder tempo</span> planejando aulas de Ciências e procurando novas atividades todos os dias?
+            Dê <span className="text-[#039D1F] font-black">Aulas de Ciências</span> Que Fazem os Alunos <span className="text-[#039D1F] font-black">Prestarem Atenção</span> do Início ao Fim.
           </h1>
         </motion.div>
 
@@ -334,7 +334,7 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
           transition={{ duration: 0.5, delay: 0.15 }}
           className="max-w-3xl lg:max-w-4xl mx-auto text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl text-slate-800 font-bold leading-relaxed px-1"
         >
-          Tenha acesso a mais de <span className="text-[#039D1F] font-black">365 experimentos prontos</span> de Ciências, Biologia, Física e Química, juntamente com mais de <span className="text-[#039D1F] font-black">100 avaliações</span> e <span className="text-[#039D1F] font-black">30 planos de aula completos</span> em minutos.
+          Receba <span className="text-[#039D1F] font-black">365 experimentos prontos</span> para aplicar <span className="text-[#039D1F] font-black">do 6º ao 9º ano e Ensino Médio</span>, usando <span className="text-[#039D1F] font-black">materiais simples</span> que você encontra <span className="text-[#039D1F] font-black">na sua casa ou escola</span>.
         </motion.p>
 
         {/* 3. Small video pointer text */}
