@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
 import whatsappTestimonial1 from '../assets/images/IMG_9820.PNG';
 import whatsappTestimonial2 from '../assets/images/IMG_9822.PNG';
 import imageProvaSocial from '../assets/images/prova social.png';
@@ -41,10 +40,13 @@ export default function TestimonialsSection({ onCtaClick }: TestimonialsSectionP
       <div className="w-full relative z-10 flex flex-col items-center">
         
         {/* Simple & Clean Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 px-6">
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight font-display leading-tight">
-            Quem adquiriu, aplicou e recomenda:
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 px-6 space-y-3">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight font-display leading-tight">
+            Veja a Experiência de Quem Já Aplicou em Sala de Aula
           </h2>
+          <p className="text-lg xs:text-xl sm:text-2xl font-bold text-amber-300 tracking-wide">
+            ⭐ ⭐ ⭐ ⭐ ⭐ (4,9/5)
+          </p>
         </div>
 
         {/* Carousel Container with Infinite Auto-scrolling marquee */}
@@ -91,8 +93,7 @@ export default function TestimonialsSection({ onCtaClick }: TestimonialsSectionP
             whileTap={{ scale: 0.98 }}
             className="w-full sm:w-auto px-10 py-5 bg-white text-[#039D1F] hover:bg-slate-50 rounded-2xl font-black text-sm sm:text-lg uppercase tracking-wider shadow-2xl shadow-black/20 flex items-center justify-center gap-2.5 cursor-pointer transition-all duration-300 font-display border border-white"
           >
-            QUERO ACESSAR AGORA
-            <ArrowRight className="w-5 h-5 shrink-0 text-[#039D1F]" />
+            Quero Receber Meu Material Agora →
           </motion.button>
         </div>
 

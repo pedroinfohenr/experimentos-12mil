@@ -19,10 +19,10 @@ export default function StatsBar({ onCtaClick }: StatsBarProps) {
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-6 md:mb-8 max-w-lg"
+          className="text-center mb-6 md:mb-8 max-w-xl"
         >
           <h2 className="text-xl xs:text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
-            Mensagem real enviada pelo <span className="text-amber-300">Prof. Mauro</span> no nosso WhatsApp:
+            Veja a Reação de Quem Aplicou o Material Pela Primeira Vez.
           </h2>
         </motion.div>
         

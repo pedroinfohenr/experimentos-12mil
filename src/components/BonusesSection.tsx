@@ -271,15 +271,8 @@ export default function BonusesSection() {
               </div>
               
               <p className="text-xl md:text-3xl font-black tracking-tight text-white leading-tight">
-                Leve todos esses materiais <span className="text-amber-300 underline underline-offset-4 decoration-amber-300/40">100% de GRAÇA</span> hoje mesmo no Pacote Completo!
+                Leve todos os bônus <span className="text-amber-300 underline underline-offset-4 decoration-amber-300/40">100% de graça</span> somente hoje!
               </p>
-
-              <div className="pt-2 flex justify-center">
-                <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white text-[#039D1F] rounded-full font-black text-xs md:text-sm shadow-md uppercase tracking-wider animate-pulse">
-                  <Check className="w-4 h-4 text-[#039D1F] stroke-[3.5]" />
-                  Garantia de Liberação Imediata
-                </span>
-              </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { ShieldCheck, Check, Sparkles, ArrowRight, X, Crown } from 'lucide-react';
+import { ShieldCheck, Check, Sparkles, ArrowRight, X, Crown, MessageCircle, Mail } from 'lucide-react';
 import { plans } from '../data';
 import { PricingPlan } from '../types';
 import { motion } from 'motion/react';
@@ -10,6 +10,9 @@ interface PricingSectionProps {
 export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
   const basicPlan = plans.find((p) => p.id === 'essencial') || plans[0];
   const completePlan = plans.find((p) => p.id === 'premium') || plans[1];
+
+  const mainFeatures = completePlan.features.filter((f) => !f.text.includes('🎁'));
+  const bonusFeatures = completePlan.features.filter((f) => f.text.includes('🎁'));
 
   return (
     <section id="planos" className="py-10 md:py-20 bg-slate-50 relative overflow-hidden grid-pattern">
@@ -26,7 +29,7 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
             Escolha o plano ideal para a sua <span className="text-[#039D1F]">rotina escolar</span>
           </h2>
           <p className="text-base sm:text-lg md:text-2xl font-extrabold text-slate-700 max-w-2xl mx-auto leading-relaxed">
-            Economize tempo e garanta <span className="text-[#039D1F]">aulas práticas prontas para aplicar</span> com acesso imediato.
+            Receba acesso imediato e comece a dar <span className="text-[#039D1F]">aulas mais práticas, dinâmicas e envolventes</span> já na próxima aula.
           </p>
         </div>
 
@@ -107,9 +110,9 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
                 </p>
               </div>
 
-              <p className="text-[10px] text-slate-400 font-extrabold text-center flex items-center justify-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-slate-400" />
-                Acesso básico • 7 dias de garantia
+              <p className="text-[10px] text-slate-500 font-extrabold text-center flex items-center justify-center gap-1">
+                <Mail className="w-3 h-3 text-slate-400 shrink-0" />
+                Envio pelo WhatsApp e E-mail • 7 dias de garantia
               </p>
             </div>
           </motion.div>
@@ -171,14 +174,14 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
               </div>
 
               {/* Main Features */}
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 mb-5">
                 <p className="text-xs font-black uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-[#039D1F]" />
                   TUDO O QUE ESTÁ INCLUSO NO PLANO COMPLETO:
                 </p>
 
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {completePlan.features.map((feat, idx) => (
+                  {mainFeatures.map((feat, idx) => (
                     <li key={idx} className="text-xs sm:text-sm flex items-start gap-2 text-slate-800 font-bold">
                       <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-[#039D1F] flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3.5 h-3.5 stroke-[3.5]" />
@@ -188,10 +191,30 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
                   ))}
                 </ul>
               </div>
+
+              {/* Quadradinho dos Bônus - LEVE DE GRAÇA TAMBÉM */}
+              {bonusFeatures.length > 0 && (
+                <div className="bg-gradient-to-br from-amber-500/10 via-amber-50/80 to-emerald-500/10 border-2 border-amber-400/90 rounded-2xl p-4 sm:p-5 mb-6 shadow-xs relative">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-amber-900 font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-1.5">
+                      <span className="text-sm">🎁</span>
+                      LEVE DE GRAÇA TAMBÉM:
+                    </span>
+                  </div>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {bonusFeatures.map((feat, idx) => (
+                      <li key={idx} className="text-xs sm:text-sm flex items-start gap-2 text-slate-900 font-black">
+                        <span className="text-base leading-none shrink-0 mt-0.5 select-none">🎁</span>
+                        <span className="leading-snug">{feat.text.replace(/^🎁\s*/, '')}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
-            {/* Action CTA Button - Pulsing border / glow without fading opacity */}
-            <div>
+            {/* Action CTA Button & Delivery Info */}
+            <div className="pt-2">
               <motion.button
                 onClick={() => onSelectPlan(completePlan)}
                 animate={{
@@ -213,10 +236,18 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
                 <ArrowRight className="w-5 h-5 stroke-[2.5]" />
               </motion.button>
 
-              <p className="text-[11px] text-slate-500 font-extrabold mt-3.5 text-center flex items-center justify-center gap-1">
-                <ShieldCheck className="w-4 h-4 text-[#039D1F]" />
-                Pagamento 100% seguro • Acesso vitalício imediato
-              </p>
+              <div className="mt-3.5 space-y-1.5 text-center">
+                <div className="inline-flex items-center justify-center gap-2 bg-emerald-100/80 border border-emerald-300 text-[#026814] font-black text-xs sm:text-sm px-4 py-2 rounded-full shadow-2xs w-full sm:w-auto">
+                  <MessageCircle className="w-4 h-4 text-[#039D1F] fill-[#039D1F]/20 shrink-0" />
+                  <Mail className="w-4 h-4 text-[#039D1F] shrink-0" />
+                  <span>Envio imediato pelo WhatsApp e E-mail</span>
+                </div>
+
+                <p className="text-[11px] text-slate-500 font-extrabold flex items-center justify-center gap-1 pt-1">
+                  <ShieldCheck className="w-4 h-4 text-[#039D1F]" />
+                  Pagamento 100% seguro • Acesso vitalício imediato
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -226,3 +257,4 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
     </section>
   );
 }
+

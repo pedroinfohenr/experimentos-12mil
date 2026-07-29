@@ -323,7 +323,7 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
           className="max-w-3xl sm:max-w-4xl lg:max-w-5xl mx-auto px-0.5"
         >
           <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight font-display leading-[1.12] drop-shadow-xs text-slate-950">
-            Dê <span className="text-[#039D1F] font-black">Aulas de Ciências</span> Que Fazem os Alunos <span className="text-[#039D1F] font-black">Prestarem Atenção</span> do Início ao Fim.
+            Dê <span className="text-[#039D1F] font-black">Aulas de Ciências</span> Onde Seus Alunos <span className="text-[#039D1F] font-black">Aprendem se Divertindo</span> e Prestam Atenção do Início ao Fim.
           </h1>
         </motion.div>
 
@@ -334,7 +334,7 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
           transition={{ duration: 0.5, delay: 0.15 }}
           className="max-w-3xl lg:max-w-4xl mx-auto text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl text-slate-800 font-bold leading-relaxed px-1"
         >
-          Receba <span className="text-[#039D1F] font-black">365 experimentos prontos</span> para aplicar <span className="text-[#039D1F] font-black">do 6º ao 9º ano e Ensino Médio</span>, usando <span className="text-[#039D1F] font-black">materiais simples</span> que você encontra <span className="text-[#039D1F] font-black">na sua casa ou escola</span>.
+          Com <span className="text-[#039D1F] font-black">mais de 365 experimentos práticos</span> do 6º ao 9º ano e Ensino Médio, você transforma alunos desinteressados em participantes ativos, usando <span className="text-[#039D1F] font-black">materiais simples</span> que você encontra na sua casa ou escola.
         </motion.p>
 
         {/* 3. Small video pointer text */}
