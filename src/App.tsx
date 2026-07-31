@@ -50,14 +50,7 @@ export default function App() {
   };
 
   const redirectToCheckout = (url: string) => {
-    try {
-      const newWindow = window.open(url, '_blank');
-      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-        window.location.href = url;
-      }
-    } catch (e) {
-      window.location.href = url;
-    }
+    window.location.href = url;
   };
 
   const scrollToPricing = () => {

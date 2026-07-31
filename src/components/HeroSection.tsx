@@ -1,5 +1,6 @@
 import { ArrowRight, Star } from 'lucide-react';
 import { motion } from 'motion/react';
+import mockupImg from '../assets/images/Design sem nome (3).png';
 
 interface HeroSectionProps {
   onCtaClick: () => void;
@@ -313,9 +314,9 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
         </motion.div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 xs:px-6 md:px-12 text-center space-y-4 xs:space-y-5 md:space-y-7 z-10 flex flex-col items-center">
+      <div className="max-w-5xl mx-auto px-4 xs:px-6 md:px-12 text-center space-y-4 xs:space-y-5 md:space-y-6 z-10 flex flex-col items-center">
         
-        {/* 1. Headline with specific brand coloring matching the requested palette */}
+        {/* 1. Headline */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -327,42 +328,32 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
           </h1>
         </motion.div>
 
-        {/* 2. Subtitle matching Screenshot */}
+        {/* 2. Mockup Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto my-2"
+        >
+          <img 
+            src={mockupImg} 
+            alt="Mockup do Material de Ciências" 
+            className="w-full h-auto object-contain drop-shadow-xl rounded-xl"
+            referrerPolicy="no-referrer"
+          />
+        </motion.div>
+
+        {/* 3. Subheadline */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
           className="max-w-3xl lg:max-w-4xl mx-auto text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl text-slate-800 font-bold leading-relaxed px-1"
         >
           Com <span className="text-[#039D1F] font-black">mais de 365 experimentos práticos</span> do 6º ao 9º ano e Ensino Médio, você transforma alunos desinteressados em participantes ativos, usando <span className="text-[#039D1F] font-black">materiais simples</span> que você encontra na sua casa ou escola.
         </motion.p>
 
-        {/* 3. Small video pointer text */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-[10px] sm:text-sm font-bold text-slate-700 flex items-center gap-1 bg-amber-50 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-amber-100"
-        >
-          <span>👇 Assista o vídeo abaixo</span>
-        </motion.div>
-
-        {/* 4. Beautifully scaled VSL Player - Increased by 40% with phone frame removed */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25 }}
-          className="relative w-full max-w-[240px] xs:max-w-[270px] sm:max-w-[310px] md:max-w-[360px] aspect-[9/17.5] rounded-2xl md:rounded-3xl shadow-2xl border border-slate-200 bg-black overflow-hidden"
-        >
-          <div 
-            className="w-full h-full"
-            dangerouslySetInnerHTML={{
-              __html: `<wistia-player media-id="u1cm2sej87" aspect="0.514" style="display: block; width: 100%; height: 100%;"></wistia-player>`
-            }}
-          />
-        </motion.div>
-
-        {/* 5. Green CTA Button - Enlarged and animated with high visibility glowing pulse */}
+        {/* 4. Green CTA Button with bullets */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -392,12 +383,12 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
             <ArrowRight className="w-5 h-5 md:w-6 h-6 shrink-0" />
           </motion.button>
           
-          <span className="text-[10px] md:text-xs text-slate-400 font-semibold mt-3 block">
+          <span className="text-[10px] md:text-xs text-slate-500 font-bold mt-3 block">
             ✓ Acesso imediato • Pagamento Único • Garantia de 7 dias
           </span>
         </motion.div>
 
-        {/* 6. Unboxed Proof Badge under CTA (Stars and Frase) */}
+        {/* 5. Stars and mini testimonial */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
