@@ -1,4 +1,4 @@
-import { ShieldCheck, Check, Sparkles, ArrowRight, X, Crown, MessageCircle, Mail } from 'lucide-react';
+import { ShieldCheck, Check, Sparkles, ArrowRight, X, Crown, MessageCircle, Mail, Zap, Gift } from 'lucide-react';
 import { plans } from '../data';
 import { PricingPlan } from '../types';
 import { motion } from 'motion/react';
@@ -11,8 +11,21 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
   const basicPlan = plans.find((p) => p.id === 'essencial') || plans[0];
   const completePlan = plans.find((p) => p.id === 'premium') || plans[1];
 
-  const mainFeatures = completePlan.features.filter((f) => !f.text.includes('🎁'));
-  const bonusFeatures = completePlan.features.filter((f) => f.text.includes('🎁'));
+  // Complete items stack in exact requested order
+  const completeFeatures = [
+    '365 Experimentos Práticos de Ciências - 6º ao 9º ano e Ensino Médio (Valor R$ 97,00)',
+    'Experimentos com Materiais Simples e Acessíveis',
+    'Guia Passo a Passo Pronto para Aplicar em Sala de Aula',
+    'Conteúdo Organizado por Temas e Séries',
+    '🎁 BÔNUS 1: Coleção com 30 Planos de Aula Prontos - BNCC (Valor R$ 37,00)',
+    '🎁 BÔNUS 2: 50 Atividades Prontas para Imprimir - Word & PDF (Valor R$ 47,00)',
+    '🎁 BÔNUS 3: Pacote Completo com 100 Avaliações de Ciências com Gabarito (Valor R$ 47,00)',
+    '🎁 BÔNUS 4: Guia do Professor & Planejamento Anual BNCC Mapeado (Valor R$ 55,00)',
+    '🎁 BÔNUS 5: Coletânea de Experimentos de Física e Biologia (Valor R$ 49,00)',
+    'Envio Imediato Direto no seu E-mail e no seu WhatsApp',
+    'Acesso Vitalício sem Mensalidades ou Taxas Extras',
+    'Garantia Incondicional de 7 Dias'
+  ];
 
   return (
     <section id="planos" className="py-10 md:py-20 bg-slate-50 relative overflow-hidden grid-pattern">
@@ -106,7 +119,7 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
 
               <div className="bg-amber-50/90 border border-amber-200/80 rounded-xl p-2.5 text-center shadow-2xs">
                 <p className="text-[10px] font-black text-amber-900 leading-tight">
-                  ⚡ <span className="text-amber-900 underline">80% dos professores</span> escolhem o plano abaixo.
+                  ⚡ <span className="text-amber-900 underline">80% dos professores</span> escolhem o plano ao lado.
                 </p>
               </div>
 
@@ -117,7 +130,7 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
             </div>
           </motion.div>
 
-          {/* CARD 2: PLANO COMPLETO (R$27) - HIGHLIGHTED BEST OPTION */}
+          {/* CARD 2: PLANO COMPLETO (R$27) - HIGHLIGHTED BEST OPTION WITH MASSIVE VALUE STACK */}
           <motion.div
             id={`plan-card-${completePlan.id}`}
             initial={{ opacity: 0, scale: 0.98, y: 20 }}
@@ -150,67 +163,54 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
                   {completePlan.name}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-bold leading-relaxed">
-                  {completePlan.description}
+                  Acesso total ao acervo completo de Ciências + 100 Avaliações + 30 Planos de Aula + TODOS os 5 bônus inclusos!
                 </p>
               </div>
 
-              {/* Pricing Box */}
-              <div className="border-y border-emerald-500/15 py-4 sm:py-6 mb-5 space-y-2 bg-emerald-50/50 px-3.5 sm:px-5 rounded-2xl">
-                <span className="text-[11px] sm:text-xs text-slate-400 line-through font-medium block">
-                  de R$ {completePlan.originalPrice.toFixed(2).replace('.', ',')}
-                </span>
+              {/* Pricing Box - Huge Explosion Price Display */}
+              <div className="border-y-2 border-emerald-500/20 py-5 sm:py-6 mb-6 space-y-2 bg-emerald-50/70 px-4 sm:px-6 rounded-2xl shadow-inner">
+                <div className="flex items-center justify-between flex-wrap gap-1">
+                  <span className="text-xs sm:text-sm text-slate-500 line-through font-bold">
+                    de R$ 332,00
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-black bg-rose-500 text-white px-2.5 py-1 rounded-md uppercase tracking-wider">
+                    -92% DESCONTO HOJE
+                  </span>
+                </div>
                 
-                <div className="flex items-baseline gap-1.5 text-[#039D1F] flex-wrap sm:flex-nowrap">
-                  <span className="text-[11px] sm:text-xs font-black uppercase text-[#039D1F]">Por apenas</span>
-                  <span className="text-3xl xs:text-4xl sm:text-6xl font-black font-display text-[#039D1F]">R$ 27,00</span>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-500">à vista</span>
+                <div className="flex items-baseline gap-2 text-[#039D1F] flex-wrap sm:flex-nowrap pt-1">
+                  <span className="text-xs sm:text-sm font-black uppercase text-[#039D1F]">Por apenas</span>
+                  <span className="text-5xl xs:text-6xl sm:text-7xl font-black font-display text-[#039D1F] tracking-tight">R$ 27,00</span>
+                  <span className="text-xs sm:text-sm font-black text-slate-700">à vista (pagamento único)</span>
                 </div>
 
-                <div className="mt-2 flex">
-                  <span className="bg-amber-100 text-amber-900 border border-amber-200 text-[10px] xs:text-[11px] font-black px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-xs leading-tight">
-                    🎁 VOCÊ ECONOMIZA R$ 227,00 HOJE!
+                <div className="mt-2.5 flex">
+                  <span className="bg-amber-300 text-amber-950 border border-amber-400 text-[10px] xs:text-xs font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-xs leading-tight">
+                    <Gift className="w-4 h-4 text-amber-950 shrink-0" />
+                    VOCÊ ECONOMIZA R$ 305,00 COMPRANDO AGORA!
                   </span>
                 </div>
               </div>
 
-              {/* Main Features */}
-              <div className="space-y-3 mb-5">
-                <p className="text-xs font-black uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
+              {/* Complete Features List (Same clean style as basic plan, no individual boxed cards) */}
+              <div className="space-y-3 mb-6">
+                <p className="text-xs font-black uppercase tracking-wider text-slate-900 flex items-center gap-1.5 border-b border-slate-200 pb-2">
                   <Sparkles className="w-4 h-4 text-[#039D1F]" />
                   TUDO O QUE ESTÁ INCLUSO NO PLANO COMPLETO:
                 </p>
 
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {mainFeatures.map((feat, idx) => (
-                    <li key={idx} className="text-xs sm:text-sm flex items-start gap-2 text-slate-800 font-bold">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-[#039D1F] flex items-center justify-center shrink-0 mt-0.5">
+                <ul className="space-y-2.5 sm:space-y-3">
+                  {completeFeatures.map((feat, idx) => (
+                    <li key={idx} className="text-xs sm:text-sm flex items-start gap-2.5 text-slate-800 font-extrabold">
+                      <div className="w-5 h-5 rounded-full bg-[#039D1F] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3.5]" />
                       </div>
-                      <span className="leading-snug">{feat.text}</span>
+                      <span className="leading-snug">{feat}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Quadradinho dos Bônus - LEVE DE GRAÇA TAMBÉM */}
-              {bonusFeatures.length > 0 && (
-                <div className="bg-gradient-to-br from-amber-500/10 via-amber-50/80 to-emerald-500/10 border-2 border-amber-400/90 rounded-2xl p-4 sm:p-5 mb-6 shadow-xs relative">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-amber-900 font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-1.5">
-                      <span className="text-sm">🎁</span>
-                      LEVE DE GRAÇA TAMBÉM:
-                    </span>
-                  </div>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {bonusFeatures.map((feat, idx) => (
-                      <li key={idx} className="text-xs sm:text-sm flex items-start gap-2 text-slate-900 font-black">
-                        <span className="text-base leading-none shrink-0 mt-0.5 select-none">🎁</span>
-                        <span className="leading-snug">{feat.text.replace(/^🎁\s*/, '')}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
 
             {/* Action CTA Button & Delivery Info */}
@@ -230,22 +230,22 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
                   duration: 2.2,
                   ease: "easeInOut"
                 }}
-                className="w-full py-5 bg-[#039D1F] hover:bg-[#028018] text-white rounded-2xl font-black text-sm sm:text-base tracking-wider uppercase transition-colors duration-200 flex items-center justify-center gap-2.5 cursor-pointer border-2 border-emerald-400 font-display opacity-100"
+                className="w-full py-5 bg-[#039D1F] hover:bg-[#028018] text-white rounded-2xl font-black text-sm sm:text-base tracking-wider uppercase transition-colors duration-200 flex items-center justify-center gap-2.5 cursor-pointer border-2 border-emerald-400 font-display opacity-100 shadow-xl"
               >
                 <span>{completePlan.buttonText}</span>
                 <ArrowRight className="w-5 h-5 stroke-[2.5]" />
               </motion.button>
 
-              <div className="mt-3.5 space-y-1.5 text-center">
-                <div className="inline-flex items-center justify-center gap-2 bg-emerald-100/80 border border-emerald-300 text-[#026814] font-black text-xs sm:text-sm px-4 py-2 rounded-full shadow-2xs w-full sm:w-auto">
+              <div className="mt-3.5 space-y-2 text-center">
+                <div className="inline-flex items-center justify-center gap-2 bg-emerald-100/90 border border-emerald-300 text-[#026814] font-black text-xs sm:text-sm px-4 py-2.5 rounded-full shadow-2xs w-full">
                   <MessageCircle className="w-4 h-4 text-[#039D1F] fill-[#039D1F]/20 shrink-0" />
                   <Mail className="w-4 h-4 text-[#039D1F] shrink-0" />
-                  <span>Envio imediato pelo WhatsApp e E-mail</span>
+                  <span>Envio Imediato Direto no seu E-mail e WhatsApp</span>
                 </div>
 
-                <p className="text-[11px] text-slate-500 font-extrabold flex items-center justify-center gap-1 pt-1">
+                <p className="text-[11px] text-slate-500 font-extrabold flex items-center justify-center gap-1 pt-0.5">
                   <ShieldCheck className="w-4 h-4 text-[#039D1F]" />
-                  Pagamento 100% seguro • Acesso vitalício imediato
+                  Pagamento 100% seguro • Acesso vitalício imediato • Garantia 7 dias
                 </p>
               </div>
             </div>

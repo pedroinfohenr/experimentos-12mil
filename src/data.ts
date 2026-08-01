@@ -71,52 +71,52 @@ export const solutions: SolutionCard[] = [
 export const bonuses: BonusItem[] = [
   {
     id: 'b1',
-    title: 'Pacote Completo com 100 Avaliações de Ciências',
-    description: 'Avaliações diagnósticas prontas, provas organizadas por bimestre, atividades avaliativas práticas, critérios de correção e gabaritos inclusos.',
-    originalPrice: 47.00,
-    currentPrice: 0.00,
-    badge: 'GRÁTIS',
-    imageAlt: 'Kit Avaliações de Ciências',
-    illustrationType: 'evaluation'
-  },
-  {
-    id: 'b2',
-    title: 'Guia do Professor para Aulas de Ciências Dinâmicas',
-    description: 'Perfeito para professores que querem transformar suas aulas em experiências mais divertidas, organizadas e com participação ativa.',
-    originalPrice: 55.00,
-    currentPrice: 0.00,
-    badge: 'GRÁTIS',
-    imageAlt: 'Manual do Professor de Ciências',
-    illustrationType: 'guide'
-  },
-  {
-    id: 'b3',
-    title: 'Coleção de Planos de Aula Prontos',
-    description: 'Chega de perder tempo planejando do zero. Tenha aulas organizadas e prontas para aplicar imediatamente nas suas turmas.',
+    title: 'Coleção com 30 Planos de Aula Prontos (BNCC)',
+    description: 'Aulas 100% planejadas passo a passo alinhadas à BNCC. Chega de perder o domingo à noite criando planos do zero.',
     originalPrice: 37.00,
     currentPrice: 0.00,
-    badge: 'GRÁTIS',
+    badge: 'GRÁTIS HOJE',
     imageAlt: 'Planos de Aula Prontos',
     illustrationType: 'plans'
   },
   {
-    id: 'b4',
-    title: 'Planejamento de Aulas de Ciências',
-    description: 'Planejamento estruturado para facilitar sua rotina. Organize suas aulas com mais clareza, sequência lógica e eficiência.',
-    originalPrice: 37.00,
+    id: 'b2',
+    title: '50 Atividades Prontas para Imprimir (Word & PDF)',
+    description: 'Atividades de fixação e exercícios formatados prontos para fotocopiadora. Economize dezenas de horas de formatação.',
+    originalPrice: 47.00,
     currentPrice: 0.00,
-    badge: 'GRÁTIS',
-    imageAlt: 'Planejamento de Aulas',
+    badge: 'GRÁTIS HOJE',
+    imageAlt: 'Atividades Prontas para Imprimir',
+    illustrationType: 'guide'
+  },
+  {
+    id: 'b3',
+    title: 'Pacote Completo com 100 Avaliações de Ciências',
+    description: 'Provas bimestrais, diagnósticas e atividades avaliativas com critérios de correção e gabaritos oficiais inclusos.',
+    originalPrice: 47.00,
+    currentPrice: 0.00,
+    badge: 'GRÁTIS HOJE',
+    imageAlt: 'Kit 100 Avaliações de Ciências',
+    illustrationType: 'evaluation'
+  },
+  {
+    id: 'b4',
+    title: 'Guia do Professor & Planejamento Anual BNCC',
+    description: 'Planejamento anual estruturado com todas as competências e habilidades mapeadas. Cale qualquer cobrança pedagógica com facilidade.',
+    originalPrice: 55.00,
+    currentPrice: 0.00,
+    badge: 'GRÁTIS HOJE',
+    imageAlt: 'Planejamento de Aulas BNCC',
     illustrationType: 'planning'
   },
   {
     id: 'b5',
-    title: 'Experimentos de Física e Biologia',
-    description: 'Coletânea especial de experimentos guiados focados em fenômenos físicos e processos biológicos complexos, explicados de forma simples.',
+    title: 'Coletânea de Experimentos de Física e Biologia',
+    description: 'Experimentos de alto impacto com materiais simples sobre fenômenos físicos e processos biológicos para encantar seus alunos.',
     originalPrice: 49.00,
     currentPrice: 0.00,
-    badge: 'GRÁTIS',
-    imageAlt: 'Física e Biologia',
+    badge: 'GRÁTIS HOJE',
+    imageAlt: 'Experimentos de Física e Biologia',
     illustrationType: 'experiments'
   }
 ];
