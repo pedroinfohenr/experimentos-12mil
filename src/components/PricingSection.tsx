@@ -119,7 +119,7 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
 
               <div className="bg-amber-50/90 border border-amber-200/80 rounded-xl p-2.5 text-center shadow-2xs">
                 <p className="text-[10px] font-black text-amber-900 leading-tight">
-                  ⚡ <span className="text-amber-900 underline">80% dos professores</span> escolhem o plano ao lado.
+                  ⚡ <span className="text-amber-900 underline">97% dos professores</span> escolhem o plano abaixo 👇
                 </p>
               </div>
 
