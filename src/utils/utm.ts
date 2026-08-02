@@ -6,6 +6,27 @@
 const STORAGE_KEY = 'ciencias_utm_params';
 
 /**
+ * Read document cookies to extract any UTMify or tracking cookies if set
+ */
+function getCookieParams(): Record<string, string> {
+  if (typeof document === 'undefined') return {};
+  const cookies: Record<string, string> = {};
+  try {
+    document.cookie.split(';').forEach((cookie) => {
+      const [name, value] = cookie.trim().split('=');
+      if (name && value) {
+        if (name.startsWith('utm_') || name === 'src' || name === 'sck' || name === 'xcod' || name.includes('utmify')) {
+          cookies[name] = decodeURIComponent(value);
+        }
+      }
+    });
+  } catch (e) {
+    // safe fallback
+  }
+  return cookies;
+}
+
+/**
  * Capture UTMs from current URL search parameters and store them in sessionStorage/localStorage
  */
 export function captureAndStoreUtms(): Record<string, string> {
@@ -38,25 +59,29 @@ export function captureAndStoreUtms(): Record<string, string> {
 }
 
 /**
- * Retrieve stored UTMs from sessionStorage or localStorage
+ * Retrieve stored UTMs from sessionStorage, localStorage, or Cookies
  */
 export function getStoredUtms(): Record<string, string> {
   if (typeof window === 'undefined') return {};
 
+  let stored: Record<string, string> = {};
+
   try {
     const sessionData = sessionStorage.getItem(STORAGE_KEY);
     if (sessionData) {
-      return JSON.parse(sessionData);
+      stored = { ...stored, ...JSON.parse(sessionData) };
     }
     const localData = localStorage.getItem(STORAGE_KEY);
     if (localData) {
-      return JSON.parse(localData);
+      stored = { ...stored, ...JSON.parse(localData) };
     }
   } catch (e) {
     console.warn('Error reading stored UTMs:', e);
   }
 
-  return {};
+  // Merge cookies if any
+  const cookieParams = getCookieParams();
+  return { ...cookieParams, ...stored };
 }
 
 /**
@@ -68,10 +93,10 @@ export function buildCheckoutUrl(baseUrl: string): string {
   try {
     const urlObj = new URL(baseUrl);
     
-    // 1. Get stored UTMs
+    // 1. Get stored UTMs (session/local storage + cookies)
     const storedUtms = captureAndStoreUtms();
 
-    // 2. Get live URL params
+    // 2. Get live URL params from current window location
     const liveParams = new URLSearchParams(window.location.search);
 
     // Merge: live params take priority over stored params
@@ -82,9 +107,23 @@ export function buildCheckoutUrl(baseUrl: string): string {
       }
     });
 
-    // Append to urlObj searchParams
+    // Smart fallback for Wiapy: Ensure 'src' and 'sck' are set if utm_source or utm_campaign exist
+    if (!allParams.src && (allParams.utm_source || allParams.utm_campaign)) {
+      allParams.src = allParams.utm_source || allParams.utm_campaign;
+    }
+
+    if (!allParams.sck && (allParams.utm_campaign || allParams.utm_content)) {
+      const sckParts = [allParams.utm_campaign, allParams.utm_content].filter(Boolean);
+      if (sckParts.length > 0) {
+        allParams.sck = sckParts.join('|');
+      }
+    }
+
+    // Append all params to checkout URL
     Object.keys(allParams).forEach((key) => {
-      urlObj.searchParams.set(key, allParams[key]);
+      if (allParams[key]) {
+        urlObj.searchParams.set(key, allParams[key]);
+      }
     });
 
     return urlObj.toString();

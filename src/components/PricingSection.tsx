@@ -2,6 +2,7 @@ import { ShieldCheck, Check, Sparkles, ArrowRight, X, Crown, MessageCircle, Mail
 import { plans } from '../data';
 import { PricingPlan } from '../types';
 import { motion } from 'motion/react';
+import { buildCheckoutUrl } from '../utils/utm';
 
 interface PricingSectionProps {
   onSelectPlan: (plan: PricingPlan) => void;
@@ -109,13 +110,17 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
 
             {/* CTA Button & 80% professors notice */}
             <div className="space-y-3">
-              <button
-                onClick={() => onSelectPlan(basicPlan)}
-                className="w-full py-3.5 bg-slate-200/80 hover:bg-slate-300 text-slate-700 rounded-xl font-black text-xs tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer border border-slate-300 font-display"
+              <a
+                href={buildCheckoutUrl('https://pay.wiapy.com/YeaKBenvRQS')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectPlan(basicPlan);
+                }}
+                className="w-full py-3.5 bg-slate-200/80 hover:bg-slate-300 text-slate-700 rounded-xl font-black text-xs tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer border border-slate-300 font-display text-center"
               >
                 <span>{basicPlan.buttonText}</span>
                 <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
-              </button>
+              </a>
 
               <div className="bg-amber-50/90 border border-amber-200/80 rounded-xl p-2.5 text-center shadow-2xs">
                 <p className="text-[10px] font-black text-amber-900 leading-tight">
@@ -215,8 +220,12 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
 
             {/* Action CTA Button & Delivery Info */}
             <div className="pt-2">
-              <motion.button
-                onClick={() => onSelectPlan(completePlan)}
+              <motion.a
+                href={buildCheckoutUrl('https://pay.wiapy.com/EDyYNMDTLkm')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectPlan(completePlan);
+                }}
                 animate={{
                   boxShadow: [
                     "0 0 0 0px rgba(3, 157, 31, 0.7), 0 10px 25px -5px rgba(3, 157, 31, 0.4)",
@@ -230,11 +239,11 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
                   duration: 2.2,
                   ease: "easeInOut"
                 }}
-                className="w-full py-5 bg-[#039D1F] hover:bg-[#028018] text-white rounded-2xl font-black text-sm sm:text-base tracking-wider uppercase transition-colors duration-200 flex items-center justify-center gap-2.5 cursor-pointer border-2 border-emerald-400 font-display opacity-100 shadow-xl"
+                className="w-full py-5 bg-[#039D1F] hover:bg-[#028018] text-white rounded-2xl font-black text-sm sm:text-base tracking-wider uppercase transition-colors duration-200 flex items-center justify-center gap-2.5 cursor-pointer border-2 border-emerald-400 font-display opacity-100 shadow-xl text-center"
               >
                 <span>{completePlan.buttonText}</span>
                 <ArrowRight className="w-5 h-5 stroke-[2.5]" />
-              </motion.button>
+              </motion.a>
 
               <div className="mt-3.5 space-y-2 text-center">
                 <div className="inline-flex items-center justify-center gap-2 bg-emerald-100/90 border border-emerald-300 text-[#026814] font-black text-xs sm:text-sm px-4 py-2.5 rounded-full shadow-2xs w-full">
