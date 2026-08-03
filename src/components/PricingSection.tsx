@@ -2,7 +2,6 @@ import { ShieldCheck, Check, Sparkles, ArrowRight, X, Crown, MessageCircle, Mail
 import { plans } from '../data';
 import { PricingPlan } from '../types';
 import { motion } from 'motion/react';
-import { buildCheckoutUrl } from '../utils/utm';
 
 interface PricingSectionProps {
   onSelectPlan: (plan: PricingPlan) => void;
@@ -12,17 +11,25 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
   const basicPlan = plans.find((p) => p.id === 'essencial') || plans[0];
   const completePlan = plans.find((p) => p.id === 'premium') || plans[1];
 
-  // Complete items stack in exact requested order
-  const completeFeatures = [
-    '365 Experimentos Práticos de Ciências - 6º ao 9º ano e Ensino Médio (Valor R$ 97,00)',
+  // Core features stack
+  const coreFeatures = [
+    '365 Experimentos Práticos de Ciências - 6º ao 9º ano e Ensino Médio',
     'Experimentos com Materiais Simples e Acessíveis',
-    'Guia Passo a Passo Pronto para Aplicar em Sala de Aula',
-    'Conteúdo Organizado por Temas e Séries',
-    '🎁 BÔNUS 1: Coleção com 30 Planos de Aula Prontos - BNCC (Valor R$ 37,00)',
-    '🎁 BÔNUS 2: 50 Atividades Prontas para Imprimir - Word & PDF (Valor R$ 47,00)',
-    '🎁 BÔNUS 3: Pacote Completo com 100 Avaliações de Ciências com Gabarito (Valor R$ 47,00)',
-    '🎁 BÔNUS 4: Guia do Professor & Planejamento Anual BNCC Mapeado (Valor R$ 55,00)',
-    '🎁 BÔNUS 5: Coletânea de Experimentos de Física e Biologia (Valor R$ 49,00)',
+    'Conteúdo separado por temas e séries',
+    'Acesso vitalício sem mensalidades'
+  ];
+
+  // Bonus features inside golden container box
+  const bonusFeatures = [
+    '🎁 BÔNUS 1: Coleção com 30 Planos de Aula Prontos - BNCC',
+    '🎁 BÔNUS 2: 50 Atividades Prontas para Imprimir - Word & PDF',
+    '🎁 BÔNUS 3: Pacote Completo com 100 Avaliações de Ciências com Gabarito',
+    '🎁 BÔNUS 4: Guia do Professor & Planejamento Anual BNCC Mapeado',
+    '🎁 BÔNUS 5: Coletânea de Experimentos de Física e Biologia'
+  ];
+
+  // Guarantee and delivery features
+  const guaranteeFeatures = [
     'Envio Imediato Direto no seu E-mail e no seu WhatsApp',
     'Acesso Vitalício sem Mensalidades ou Taxas Extras',
     'Garantia Incondicional de 7 Dias'
@@ -60,10 +67,12 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
             className="lg:col-span-4 rounded-[24px] p-5 sm:p-6 flex flex-col justify-between bg-slate-50/80 text-slate-800 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden"
           >
             <div>
-              {/* Badge */}
-              <div className="inline-block bg-slate-200/70 text-slate-600 border border-slate-300/60 text-[9px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full mb-3">
-                ⚠️ {basicPlan.badge || 'CONTEÚDO REDUZIDO'}
-              </div>
+              {/* Badge (only shown if present) */}
+              {basicPlan.badge && (
+                <div className="inline-block bg-slate-200/70 text-slate-600 border border-slate-300/60 text-[9px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full mb-3">
+                  ⚠️ {basicPlan.badge}
+                </div>
+              )}
 
               {/* Title & Desc */}
               <div className="space-y-1.5 mb-5">
@@ -76,14 +85,14 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
               </div>
 
               {/* Price */}
-              <div className="border-y border-slate-200/60 py-4 mb-5 space-y-0.5">
+              <div className="border-y border-slate-200/60 py-4 mb-5 text-center space-y-1">
                 <span className="text-[11px] text-slate-400 line-through font-medium block">
-                  de R$ {basicPlan.originalPrice.toFixed(2).replace('.', ',')}
+                  de R$ 29,90
                 </span>
-                <div className="flex items-baseline gap-1 whitespace-nowrap">
-                  <span className="text-[11px] font-black uppercase text-slate-500">Por apenas</span>
-                  <span className="text-3xl sm:text-4xl font-black font-display text-slate-900">R$ 10,00</span>
-                  <span className="text-[10px] font-bold text-slate-500">à vista</span>
+                <div className="flex items-baseline justify-center whitespace-nowrap">
+                  <span className="text-3xl sm:text-4xl font-black font-display text-slate-900 flex items-baseline">
+                    R$ 10<span className="text-xl sm:text-2xl font-bold font-display">,90</span>
+                  </span>
                 </div>
               </div>
 
@@ -110,21 +119,17 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
 
             {/* CTA Button & 80% professors notice */}
             <div className="space-y-3">
-              <a
-                href={buildCheckoutUrl('https://pay.wiapy.com/YeaKBenvRQS')}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onSelectPlan(basicPlan);
-                }}
-                className="w-full py-3.5 bg-slate-200/80 hover:bg-slate-300 text-slate-700 rounded-xl font-black text-xs tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer border border-slate-300 font-display text-center"
+              <button
+                onClick={() => onSelectPlan(basicPlan)}
+                className="w-full py-3.5 bg-slate-200/80 hover:bg-slate-300 text-slate-700 rounded-xl font-black text-xs tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer border border-slate-300 font-display"
               >
                 <span>{basicPlan.buttonText}</span>
                 <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
-              </a>
+              </button>
 
               <div className="bg-amber-50/90 border border-amber-200/80 rounded-xl p-2.5 text-center shadow-2xs">
                 <p className="text-[10px] font-black text-amber-900 leading-tight">
-                  ⚡ <span className="text-amber-900 underline">97% dos professores</span> escolhem o plano abaixo 👇
+                  ⚡ <span className="text-amber-900 underline">93% dos professores</span> escolhem o plano ao lado.
                 </p>
               </div>
 
@@ -135,7 +140,7 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
             </div>
           </motion.div>
 
-          {/* CARD 2: PLANO COMPLETO (R$27) - HIGHLIGHTED BEST OPTION WITH MASSIVE VALUE STACK */}
+          {/* CARD 2: PLANO COMPLETO (R$27,90) - HIGHLIGHTED BEST OPTION WITH MASSIVE VALUE STACK */}
           <motion.div
             id={`plan-card-${completePlan.id}`}
             initial={{ opacity: 0, scale: 0.98, y: 20 }}
@@ -172,40 +177,39 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
                 </p>
               </div>
 
-              {/* Pricing Box - Huge Explosion Price Display */}
-              <div className="border-y-2 border-emerald-500/20 py-5 sm:py-6 mb-6 space-y-2 bg-emerald-50/70 px-4 sm:px-6 rounded-2xl shadow-inner">
-                <div className="flex items-center justify-between flex-wrap gap-1">
-                  <span className="text-xs sm:text-sm text-slate-500 line-through font-bold">
-                    de R$ 332,00
-                  </span>
-                  <span className="text-[10px] sm:text-xs font-black bg-rose-500 text-white px-2.5 py-1 rounded-md uppercase tracking-wider">
-                    -92% DESCONTO HOJE
-                  </span>
-                </div>
+              {/* Pricing Box - Clean Centered Price Display */}
+              <div className="border-y-2 border-slate-200 py-4 sm:py-5 mb-6 text-center space-y-1">
+                <span className="text-xs sm:text-sm text-slate-500 line-through font-bold block">
+                  de R$ 130,27
+                </span>
                 
-                <div className="flex items-baseline gap-2 text-[#039D1F] flex-wrap sm:flex-nowrap pt-1">
-                  <span className="text-xs sm:text-sm font-black uppercase text-[#039D1F]">Por apenas</span>
-                  <span className="text-5xl xs:text-6xl sm:text-7xl font-black font-display text-[#039D1F] tracking-tight">R$ 27,00</span>
-                  <span className="text-xs sm:text-sm font-black text-slate-700">à vista (pagamento único)</span>
+                <div className="flex items-baseline justify-center text-[#039D1F] pt-1">
+                  <span className="text-5xl xs:text-6xl sm:text-7xl font-black font-display text-[#039D1F] tracking-tight flex items-baseline">
+                    R$ 27<span className="text-2xl xs:text-3xl sm:text-4xl font-bold font-display text-[#039D1F]">,90</span>
+                  </span>
                 </div>
 
-                <div className="mt-2.5 flex">
+                <span className="text-xs sm:text-sm font-black text-slate-600 block">
+                  (pagamento único)
+                </span>
+
+                <div className="mt-2.5 flex justify-center">
                   <span className="bg-amber-300 text-amber-950 border border-amber-400 text-[10px] xs:text-xs font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-xs leading-tight">
                     <Gift className="w-4 h-4 text-amber-950 shrink-0" />
-                    VOCÊ ECONOMIZA R$ 305,00 COMPRANDO AGORA!
+                    VOCÊ ECONOMIZA R$ 102,37 COMPRANDO AGORA!
                   </span>
                 </div>
               </div>
 
-              {/* Complete Features List (Same clean style as basic plan, no individual boxed cards) */}
-              <div className="space-y-3 mb-6">
+              {/* Core Included Features */}
+              <div className="space-y-3 mb-5">
                 <p className="text-xs font-black uppercase tracking-wider text-slate-900 flex items-center gap-1.5 border-b border-slate-200 pb-2">
                   <Sparkles className="w-4 h-4 text-[#039D1F]" />
-                  TUDO O QUE ESTÁ INCLUSO NO PLANO COMPLETO:
+                  CONTEÚDO PRINCIPAL INCLUSO:
                 </p>
 
-                <ul className="space-y-2.5 sm:space-y-3">
-                  {completeFeatures.map((feat, idx) => (
+                <ul className="space-y-2.5">
+                  {coreFeatures.map((feat, idx) => (
                     <li key={idx} className="text-xs sm:text-sm flex items-start gap-2.5 text-slate-800 font-extrabold">
                       <div className="w-5 h-5 rounded-full bg-[#039D1F] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3.5]" />
@@ -216,16 +220,42 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
                 </ul>
               </div>
 
+              {/* Golden Bonus Box ("quadradinho dourado com os bônus dentro") */}
+              <div className="bg-gradient-to-br from-amber-50 via-amber-100/70 to-yellow-100/90 border-2 border-amber-400 rounded-2xl p-4 sm:p-5 mb-5 shadow-md space-y-3 relative overflow-hidden">
+                <div className="flex items-center gap-2 border-b border-amber-300/80 pb-2.5">
+                  <Gift className="w-5 h-5 text-amber-800 shrink-0 animate-bounce" />
+                  <span className="text-xs sm:text-sm font-black text-amber-950 uppercase tracking-wide font-display">
+                    BÔNUS EXCLUSIVOS (valor de R$ 102,37 por 0 reais):
+                  </span>
+                </div>
+
+                <ul className="space-y-2.5">
+                  {bonusFeatures.map((bonus, idx) => (
+                    <li key={idx} className="text-xs sm:text-sm flex items-start gap-2 text-amber-950 font-extrabold bg-white/80 border border-amber-300/60 rounded-xl p-3 shadow-2xs">
+                      <span className="leading-snug">{bonus}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Guarantee and Delivery Items */}
+              <ul className="space-y-2 mb-6">
+                {guaranteeFeatures.map((item, idx) => (
+                  <li key={idx} className="text-xs sm:text-sm flex items-start gap-2.5 text-slate-700 font-extrabold">
+                    <div className="w-5 h-5 rounded-full bg-emerald-100 text-[#039D1F] flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 stroke-[3.5]" />
+                    </div>
+                    <span className="leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
             </div>
 
             {/* Action CTA Button & Delivery Info */}
             <div className="pt-2">
-              <motion.a
-                href={buildCheckoutUrl('https://pay.wiapy.com/EDyYNMDTLkm')}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onSelectPlan(completePlan);
-                }}
+              <motion.button
+                onClick={() => onSelectPlan(completePlan)}
                 animate={{
                   boxShadow: [
                     "0 0 0 0px rgba(3, 157, 31, 0.7), 0 10px 25px -5px rgba(3, 157, 31, 0.4)",
@@ -239,11 +269,11 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
                   duration: 2.2,
                   ease: "easeInOut"
                 }}
-                className="w-full py-5 bg-[#039D1F] hover:bg-[#028018] text-white rounded-2xl font-black text-sm sm:text-base tracking-wider uppercase transition-colors duration-200 flex items-center justify-center gap-2.5 cursor-pointer border-2 border-emerald-400 font-display opacity-100 shadow-xl text-center"
+                className="w-full py-5 bg-[#039D1F] hover:bg-[#028018] text-white rounded-2xl font-black text-sm sm:text-base tracking-wider uppercase transition-colors duration-200 flex items-center justify-center gap-2.5 cursor-pointer border-2 border-emerald-400 font-display opacity-100 shadow-xl"
               >
                 <span>{completePlan.buttonText}</span>
                 <ArrowRight className="w-5 h-5 stroke-[2.5]" />
-              </motion.a>
+              </motion.button>
 
               <div className="mt-3.5 space-y-2 text-center">
                 <div className="inline-flex items-center justify-center gap-2 bg-emerald-100/90 border border-emerald-300 text-[#026814] font-black text-xs sm:text-sm px-4 py-2.5 rounded-full shadow-2xs w-full">

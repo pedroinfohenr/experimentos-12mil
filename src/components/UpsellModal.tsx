@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Gift, X, Check, ShieldCheck, Sparkles, AlertCircle, ArrowRight } from 'lucide-react';
-import { buildCheckoutUrl } from '../utils/utm';
 
 interface UpsellModalProps {
   isOpen: boolean;
@@ -123,30 +122,22 @@ export default function UpsellModal({ isOpen, onClose, onAcceptUpsell, onDecline
 
             {/* Action Buttons */}
             <div className="space-y-2.5 pt-1">
-              <motion.a
-                href={buildCheckoutUrl('https://pay.wiapy.com/ZiPOwLgRTB')}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onAcceptUpsell();
-                }}
+              <motion.button
+                onClick={onAcceptUpsell}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 px-4 bg-[#039D1F] hover:bg-[#028018] text-white rounded-2xl font-black text-xs sm:text-sm tracking-wider uppercase shadow-xl shadow-emerald-600/30 cursor-pointer transition-all flex items-center justify-center gap-2 border border-emerald-500 font-display text-center"
+                className="w-full py-4 px-4 bg-[#039D1F] hover:bg-[#028018] text-white rounded-2xl font-black text-xs sm:text-sm tracking-wider uppercase shadow-xl shadow-emerald-600/30 cursor-pointer transition-all flex items-center justify-center gap-2 border border-emerald-500 font-display"
               >
                 <span>SIM! QUERO O PLANO COMPLETO POR R$ 17,90</span>
                 <ArrowRight className="w-4 h-4 stroke-[3]" />
-              </motion.a>
+              </motion.button>
               
-              <a
-                href={buildCheckoutUrl('https://pay.wiapy.com/YeaKBenvRQS')}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onDeclineUpsell();
-                }}
+              <button
+                onClick={onDeclineUpsell}
                 className="w-full py-3 px-3 bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 font-bold rounded-xl text-xs tracking-wide uppercase transition-all cursor-pointer text-center block border border-slate-200"
               >
                 Não, obrigado. Prefiro o pacote básico de R$ 10,00
-              </a>
+              </button>
             </div>
 
             <p className="text-[10px] text-slate-400 font-extrabold text-center flex items-center justify-center gap-1 select-none pt-0.5">

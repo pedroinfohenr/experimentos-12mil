@@ -204,11 +204,11 @@ export default function BonusesSection() {
             Adquirindo hoje o Plano Completo, <span className="text-[#039D1F] font-black underline decoration-emerald-500/20 underline-offset-4">você ganha todos os 5 bônus:</span>
           </h2>
           <p className="text-slate-600 font-extrabold text-sm sm:text-lg max-w-2xl mx-auto">
-            Mais de <span className="text-[#039D1F]">R$ 235,00 em materiais extras</span> que você leva totalmente de graça!
+            Todos os bônus somam <span className="text-[#039D1F]">R$ 102,37</span> hoje e estão <span className="text-[#039D1F]">incluídos grátis</span> no pacote completo!
           </p>
         </div>
 
-        {/* Bonuses Vertical Stack with 2D Mockup images and price anchors */}
+        {/* Bonuses Vertical Stack with 2D Mockup images */}
         <div className="space-y-4 md:space-y-6">
           {bonuses.map((bonus, idx) => (
             <motion.div
@@ -231,7 +231,7 @@ export default function BonusesSection() {
                 {bonus.illustration}
               </div>
 
-              {/* Punchy Pain-Point Title & Pricing Block */}
+              {/* Punchy Title & Description */}
               <div className="flex-1 space-y-2 sm:pr-24">
                 <div className="inline-block px-2.5 py-0.5 bg-emerald-100/70 text-emerald-900 border border-emerald-200 text-[10px] font-black rounded-md tracking-wider uppercase">
                   {bonus.badge}
@@ -245,13 +245,10 @@ export default function BonusesSection() {
                   <span className="text-[#039D1F] font-black">Inclui:</span> {bonus.tagline}
                 </p>
 
-                {/* Price Tag with Crossed-out original price */}
+                {/* Free Badge */}
                 <div className="pt-2 flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                  <span className="text-xs sm:text-sm text-slate-400 font-bold">
-                    Preço normal: <span className="line-through">{bonus.originalPrice}</span>
-                  </span>
                   <span className="px-3 py-1 bg-emerald-500 text-white font-black text-xs sm:text-sm rounded-full shadow-xs uppercase tracking-wider">
-                    GRÁTIS HOJE (R$ 0,00)
+                    🎁 INCLUSO 100% GRÁTIS
                   </span>
                 </div>
               </div>
@@ -268,15 +265,11 @@ export default function BonusesSection() {
             
             <div className="relative z-10 space-y-3 max-w-2xl mx-auto">
               <span className="text-[11px] md:text-xs font-black tracking-widest text-emerald-100 uppercase block font-mono">
-                VALOR INDIVIDUAL DOS BÔNUS SE COMPRADOS SEPARADAMENTE
+                BÔNUS EXCLUSIVOS DISPONÍVEIS HOJE (VALOR DE R$ 102,37 POR R$ 0,00)
               </span>
               
-              <div className="text-2xl md:text-4xl font-black text-white/50 line-through tracking-tight block">
-                R$ 235,00
-              </div>
-              
               <p className="text-xl md:text-3xl font-black tracking-tight text-white leading-tight">
-                Leve todos os 5 bônus <span className="text-amber-300 underline underline-offset-4 decoration-amber-300/40">100% de graça</span> no Plano Completo hoje!
+                Leve todos os 5 bônus somando R$ 102,37 <span className="text-amber-300 underline underline-offset-4 decoration-amber-300/40">100% de graça</span> no Plano Completo!
               </p>
             </div>
           </div>

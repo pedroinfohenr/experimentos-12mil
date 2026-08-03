@@ -9,16 +9,14 @@ import GuaranteeSection from './components/GuaranteeSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import UpsellModal from './components/UpsellModal';
-import { captureAndStoreUtms, buildCheckoutUrl } from './utils/utm';
 
 export default function App() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [unlockedEmail, setUnlockedEmail] = useState<string | null>(null);
   const [isUpsellOpen, setIsUpsellOpen] = useState(false);
 
-  // Capture UTMs and load unlocked state from localStorage on startup
+  // Load unlocked state from localStorage on startup
   useEffect(() => {
-    captureAndStoreUtms();
     try {
       const savedUnlock = localStorage.getItem('ciencias_premium_unlocked');
       const savedEmail = localStorage.getItem('ciencias_premium_email');
@@ -52,8 +50,7 @@ export default function App() {
   };
 
   const redirectToCheckout = (url: string) => {
-    const destinationUrl = buildCheckoutUrl(url);
-    window.location.href = destinationUrl;
+    window.location.href = url;
   };
 
   const scrollToPricing = () => {
