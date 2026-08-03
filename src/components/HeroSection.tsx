@@ -379,7 +379,7 @@ export default function HeroSection({ onCtaClick, onExploreLibraryClick, isUnloc
               animate={{ x: ['-100%', '300%'] }}
               transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut", repeatDelay: 1 }}
             />
-            QUERO ACESSAR AGORA
+            👉🏻ACESSAR AGORA
             <ArrowRight className="w-5 h-5 md:w-6 h-6 shrink-0" />
           </motion.button>
           
