@@ -15,7 +15,7 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
   const coreFeatures = [
     '365 Experimentos Práticos de Ciências - 6º ao 9º ano e Ensino Médio',
     'Experimentos com Materiais Simples e Acessíveis',
-    'Conteúdo separado por temas e séries',
+    'Conteúdo separado por temas',
     'Acesso vitalício sem mensalidades'
   ];
 

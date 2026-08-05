@@ -132,7 +132,7 @@ export const plans: PricingPlan[] = [
     cents: '90',
     features: [
       { text: '365 Experimentos de Ciências Prontos', included: true },
-      { text: 'Conteúdo separado por temas e séries', included: true },
+      { text: 'Conteúdo separado por temas', included: true },
       { text: 'Acesso vitalício sem mensalidades', included: true },
       { text: 'Garantia incondicional de 7 dias', included: true },
       { text: '❌ Não inclui +100 avaliações prontas', included: false },
