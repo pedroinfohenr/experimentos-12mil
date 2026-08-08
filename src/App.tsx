@@ -15,7 +15,7 @@ export default function App() {
   const [unlockedEmail, setUnlockedEmail] = useState<string | null>(null);
   const [isUpsellOpen, setIsUpsellOpen] = useState(false);
 
-  // Load unlocked state from localStorage on startup
+  // Save incoming UTM parameters to localStorage/sessionStorage on startup
   useEffect(() => {
     try {
       const savedUnlock = localStorage.getItem('ciencias_premium_unlocked');
@@ -26,6 +26,15 @@ export default function App() {
           setUnlockedEmail(savedEmail);
         }
       }
+
+      // Persist UTM parameters in storage so they are never lost
+      const searchParams = new URLSearchParams(window.location.search);
+      searchParams.forEach((value, key) => {
+        if (value) {
+          localStorage.setItem(key, value);
+          sessionStorage.setItem(key, value);
+        }
+      });
     } catch (e) {
       // safe fallback
     }
@@ -49,8 +58,52 @@ export default function App() {
     }, 500);
   };
 
-  const redirectToCheckout = (url: string) => {
-    window.location.href = url;
+  const redirectToCheckout = (baseUrl: string) => {
+    try {
+      const urlObj = new URL(baseUrl);
+      
+      // 1. Capture current URL params from window.location.search
+      const currentSearchParams = new URLSearchParams(window.location.search);
+      currentSearchParams.forEach((value, key) => {
+        if (value && !urlObj.searchParams.has(key)) {
+          urlObj.searchParams.set(key, value);
+        }
+      });
+
+      // 2. Check storage fallbacks for UTMs and tracking IDs
+      const trackingKeys = [
+        'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+        'src', 'sck', 'fbclid', 'gclid', 'utmify_id', '_fbp', '_fbc'
+      ];
+      trackingKeys.forEach((key) => {
+        if (!urlObj.searchParams.has(key)) {
+          const savedValue = localStorage.getItem(key) || sessionStorage.getItem(key);
+          if (savedValue) {
+            urlObj.searchParams.set(key, savedValue);
+          }
+        }
+      });
+
+      // 3. Auto-populate 'src' and 'sck' if Wiapy requires them for tracking
+      if (!urlObj.searchParams.has('src') && urlObj.searchParams.has('utm_source')) {
+        urlObj.searchParams.set('src', urlObj.searchParams.get('utm_source') || '');
+      }
+      if (!urlObj.searchParams.has('sck') && urlObj.searchParams.has('utm_campaign')) {
+        urlObj.searchParams.set('sck', urlObj.searchParams.get('utm_campaign') || '');
+      }
+
+      window.location.href = urlObj.toString();
+    } catch (e) {
+      // Fallback simple append
+      const searchParams = window.location.search;
+      if (searchParams && searchParams.length > 1) {
+        const cleanParams = searchParams.startsWith('?') ? searchParams.substring(1) : searchParams;
+        const separator = baseUrl.includes('?') ? '&' : '?';
+        window.location.href = `${baseUrl}${separator}${cleanParams}`;
+      } else {
+        window.location.href = baseUrl;
+      }
+    }
   };
 
   const scrollToPricing = () => {
