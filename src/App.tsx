@@ -50,19 +50,6 @@ export default function App() {
   };
 
   const redirectToCheckout = (url: string) => {
-    try {
-      const searchParams = window.location.search;
-      if (searchParams) {
-        const separator = url.includes('?') ? '&' : '?';
-        const cleanParams = searchParams.startsWith('?') ? searchParams.substring(1) : searchParams;
-        if (cleanParams) {
-          window.location.href = `${url}${separator}${cleanParams}`;
-          return;
-        }
-      }
-    } catch (e) {
-      console.error('Error processing URL parameters:', e);
-    }
     window.location.href = url;
   };
 
