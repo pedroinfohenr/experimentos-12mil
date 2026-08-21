@@ -11,8 +11,8 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-10 md:py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-8">
+    <section id="faq" className="py-12 md:py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
 
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">

@@ -263,13 +263,17 @@ export default function BonusesSection() {
             <div className="absolute -top-12 -right-12 w-48 h-48 bg-white/15 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-emerald-300/15 rounded-full blur-3xl"></div>
             
-            <div className="relative z-10 space-y-3 max-w-2xl mx-auto">
-              <span className="text-[11px] md:text-xs font-black tracking-widest text-emerald-100 uppercase block font-mono">
-                BÔNUS EXCLUSIVOS DISPONÍVEIS HOJE (VALOR DE R$ 102,37 POR R$ 0,00)
+            <div className="relative z-10 space-y-2 sm:space-y-3 max-w-2xl mx-auto text-white">
+              <span className="text-base sm:text-lg md:text-xl font-black tracking-wide text-white uppercase block font-display">
+                Valor Total dos Bônus
               </span>
               
-              <p className="text-xl md:text-3xl font-black tracking-tight text-white leading-tight">
-                Leve todos os 5 bônus somando R$ 102,37 <span className="text-amber-300 underline underline-offset-4 decoration-amber-300/40">100% de graça</span> no Plano Completo!
+              <div className="text-2xl sm:text-4xl md:text-5xl font-black text-white/90 line-through decoration-white/80 decoration-3 tracking-tight">
+                R$ 102,37
+              </div>
+
+              <p className="text-lg sm:text-2xl md:text-3xl font-black tracking-tight text-white leading-tight pt-1">
+                Inclusos GRÁTIS no Pacote Completo!
               </p>
             </div>
           </div>

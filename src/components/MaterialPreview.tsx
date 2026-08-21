@@ -54,7 +54,7 @@ export default function MaterialPreview({ onCtaClick }: MaterialPreviewProps) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 md:mb-10 px-4 sm:px-8">
           <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-black text-slate-950 tracking-tight font-display leading-tight">
-            Conheça <span className="text-[#039D1F]">seu material:</span>
+            Uma prévia do que <span className="text-[#039D1F]">irá receber:</span>
           </h2>
         </div>
 

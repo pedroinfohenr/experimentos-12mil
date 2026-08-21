@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import HeaderBanner from './components/HeaderBanner';
 import HeroSection from './components/HeroSection';
-import StatsBar from './components/StatsBar';
+import ProblemSection from './components/ProblemSection';
 import MaterialPreview from './components/MaterialPreview';
 import BonusesSection from './components/BonusesSection';
 import PricingSection from './components/PricingSection';
@@ -109,7 +109,9 @@ export default function App() {
   const scrollToPricing = () => {
     const element = document.getElementById('planos');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const yOffset = -140;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
@@ -133,11 +135,11 @@ export default function App() {
         isUnlocked={isUnlocked}
       />
 
-      {/* 7. Preview of material/experiments brought to top right after Hero */}
-      <MaterialPreview onCtaClick={scrollToPricing} />
+      {/* Seção Sua Transformação (abaixo do Hero) */}
+      <ProblemSection onCtaClick={scrollToPricing} />
 
-      {/* 4. Social proof stats row matching Image 2 */}
-      <StatsBar onCtaClick={scrollToPricing} />
+      {/* 7. Preview of material/experiments */}
+      <MaterialPreview onCtaClick={scrollToPricing} />
 
       {/* 8. 5 Book-cover styled premium bonuses matching Image 5 */}
       <BonusesSection />

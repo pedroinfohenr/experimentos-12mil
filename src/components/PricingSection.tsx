@@ -30,9 +30,9 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
 
   // Guarantee and delivery features
   const guaranteeFeatures = [
-    'Envio Imediato Direto no seu E-mail e no seu WhatsApp',
-    'Acesso Vitalício sem Mensalidades ou Taxas Extras',
-    'Garantia Incondicional de 7 Dias'
+    'Enviado no seu e-mail e WhatsApp',
+    'Pode ser impresso',
+    'Garantia de 7 dias'
   ];
 
   return (
@@ -42,16 +42,45 @@ export default function PricingSection({ onSelectPlan }: PricingSectionProps) {
       <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-amber-100/20 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
 
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16 space-y-3">
+        {/* Section Header with exact requested titles and bullets */}
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 space-y-3 sm:space-y-4">
+          <div className="inline-block bg-emerald-100/90 text-[#027a17] border border-emerald-300/80 text-xs sm:text-sm font-black tracking-wide uppercase px-4 py-1.5 rounded-full shadow-2xs">
+            Você já viu o que tem lá dentro. Agora...
+          </div>
+          
           <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black text-slate-950 tracking-tight font-display leading-tight">
-            Escolha o plano ideal para a sua <span className="text-[#039D1F]">rotina escolar</span>
+            Quanto vale o seu <span className="text-[#039D1F]">domingo de volta?</span>
           </h2>
+          
           <p className="text-base sm:text-lg md:text-2xl font-extrabold text-slate-700 max-w-2xl mx-auto leading-relaxed">
-            Receba acesso imediato e comece a dar <span className="text-[#039D1F]">aulas mais práticas, dinâmicas e envolventes</span> já na próxima aula.
+            Acesso completo por um preço que cabe no seu bolso.
           </p>
+
+          {/* Requested Bullets Bar */}
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-2 sm:gap-4">
+            <div className="inline-flex items-center gap-2 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-xs text-xs sm:text-sm font-black text-slate-800">
+              <div className="w-5 h-5 rounded-full bg-emerald-100 text-[#039D1F] flex items-center justify-center shrink-0">
+                <Check className="w-3.5 h-3.5 stroke-[3.5]" />
+              </div>
+              <span>Enviado no seu e-mail e WhatsApp</span>
+            </div>
+
+            <div className="inline-flex items-center gap-2 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-xs text-xs sm:text-sm font-black text-slate-800">
+              <div className="w-5 h-5 rounded-full bg-emerald-100 text-[#039D1F] flex items-center justify-center shrink-0">
+                <Check className="w-3.5 h-3.5 stroke-[3.5]" />
+              </div>
+              <span>Pode ser impresso</span>
+            </div>
+
+            <div className="inline-flex items-center gap-2 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-xs text-xs sm:text-sm font-black text-slate-800">
+              <div className="w-5 h-5 rounded-full bg-emerald-100 text-[#039D1F] flex items-center justify-center shrink-0">
+                <Check className="w-3.5 h-3.5 stroke-[3.5]" />
+              </div>
+              <span>Garantia de 7 dias</span>
+            </div>
+          </div>
         </div>
 
         {/* Two Offer Cards Grid */}
